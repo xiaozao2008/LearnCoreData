@@ -18,18 +18,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         viewModel.modelDelegate = self
         tableViewModel.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
-        setupNavigationBar()
-        setupTableView()
-    }
-    
-    /// 增加右上角add按钮
-    func setupNavigationBar() {
+        /// 增加右上角add按钮
         viewModel.bindBarButtonItem(navigationItem)
-    }
-    
-    /// bind一下tableView
-    func setupTableView() {
+        /// bind一下tableView
         tableViewModel.bindTable(tableView)
         view.addSubview(tableView)
     }
@@ -45,7 +36,7 @@ extension ViewController: ViewModelDelegate {
     
     /// 增加model
     func addModel(_ color: UIColor, date: Date) {
-        /// 点击按钮 显示颜色
+        // 点击了add增加按钮
         ModelDB.default.container.viewContext.perform {
             let _ = ModelDB.default.insert(color, time: date)
             try! ModelDB.default.container.viewContext.save()

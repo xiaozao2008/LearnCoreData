@@ -27,8 +27,8 @@ class TimeTableViewCell: UITableViewCell {
 extension TimeTableViewCell: CellDelegate {
     
     func setModel(_ color: UIColor, date: Date) {
-        contentView.backgroundColor = color
         textLabel?.text = date.debugDescription
+        textLabel?.textColor = color
     }
     
     static var name: String {
